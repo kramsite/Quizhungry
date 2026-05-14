@@ -17,7 +17,7 @@
 body {
     /* Camada preta transparente por cima da imagem */
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
-                url('../img/fundo.png');
+                url('img/fundo.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
