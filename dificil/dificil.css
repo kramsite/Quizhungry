@@ -1,0 +1,273 @@
+/* 1. RESET E CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+:root {
+    --primary-color: #ffb400;
+    --secondary-color: #ff6a00;
+    --bg-dark: #0a0a0a;
+    --text-white: #ffffff;
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+}
+
+/* 2. FUNDO DA PÁGINA */
+body {
+    background: linear-gradient(
+                    rgba(0, 0, 0, 0.25),
+                    rgba(0, 0, 0, 0.25)
+                ),
+                url('../img/fundo.png');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: var(--bg-dark);
+
+    min-height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--text-white);
+    overflow: hidden;
+}
+
+/* 3. CONTAINER PRINCIPAL */
+.game-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 24px;
+    text-align: center;
+    position: relative;
+}
+
+/* 4. TELAS */
+.screen,
+#quiz-container,
+#result-screen,
+#review-screen {
+    width: 100%;
+    min-height: 100vh;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active,
+#quiz-container.active {
+    display: flex;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* 5. CABEÇALHO DA PERGUNTA */
+.main-header {
+    width: 100%;
+    max-width: 360px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 auto 34px auto;
+}
+
+/* 6. TEXTO PEQUENO */
+.subtitle {
+    font-size: 0.78rem;
+    letter-spacing: 3px;
+
+    color: var(--secondary-color);
+    text-transform: uppercase;
+
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+/* 7. TEXTO DA PERGUNTA */
+.mission-text {
+    width: 100%;
+    max-width: 360px;
+
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: 600;
+
+    color: var(--text-white);
+    text-align: center;
+
+    margin: 0 auto;
+}
+
+/* 8. TÍTULO FINAL */
+.glow-text {
+    font-size: clamp(2.6rem, 13vw, 4.2rem);
+    font-weight: 900;
+    letter-spacing: 5px;
+
+    color: var(--primary-color);
+    text-transform: uppercase;
+
+    text-shadow: 0 0 15px rgba(255, 180, 0, 0.6);
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+/* 9. ÁREA DAS ALTERNATIVAS */
+.action-area,
+#options-container {
+    width: 100%;
+    max-width: 290px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 16px;
+    margin: 0 auto;
+}
+
+/* 10. BOTÕES */
+.btn-game,
+#options-container button {
+    width: 100%;
+    display: block;
+
+    background: rgba(255, 180, 0, 0.06);
+    color: var(--primary-color);
+
+    border: 1px solid var(--primary-color);
+    padding: 18px 20px;
+
+    font-size: 0.85rem; 
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    backdrop-filter: blur(8px);
+}
+
+.btn-game:hover,
+#options-container button:hover {
+    background: var(--primary-color);
+    color: #000;
+    box-shadow: 0 0 30px rgba(255, 180, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* 11. EFEITO DE ACERTO */
+.btn-correct {
+    border-color: var(--success-color) !important;
+    color: var(--success-color) !important;
+    background: rgba(46, 204, 113, 0.1) !important;
+    box-shadow: 0 0 25px rgba(46, 204, 113, 0.6) !important;
+}
+
+/* 12. EFEITO DE ERRO */
+.btn-wrong {
+    border-color: var(--error-color) !important;
+    color: var(--error-color) !important;
+    background: rgba(231, 76, 60, 0.1) !important;
+    box-shadow: 0 0 25px rgba(231, 76, 60, 0.6) !important;
+}
+
+/* 13. TELA DE RESULTADO */
+#result-screen {
+    gap: 18px;
+}
+
+#result-screen .action-area {
+    margin-top: 20px;
+}
+
+/* 14. TELA DE REVISÃO */
+#review-screen {
+    padding: 30px 0;
+    justify-content: flex-start;
+}
+
+#review-list {
+    width: 100%;
+    max-width: 360px;
+
+    color: var(--text-white);
+    line-height: 1.5;
+
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 180, 0, 0.25);
+
+    padding: 16px;
+    margin: 10px auto 20px auto;
+
+    backdrop-filter: blur(8px);
+}
+
+/* 15. ANIMAÇÃO */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 16. RESPONSIVO */
+@media (max-width: 380px) {
+    .game-container {
+        padding: 20px;
+    }
+
+    .glow-text {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+
+    .subtitle {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+    }
+
+    .mission-text {
+        font-size: 1rem;
+    }
+
+    .action-area,
+    #options-container {
+        max-width: 270px;
+    }
+
+    .btn-game,
+    #options-container button {
+        padding: 16px;
+        font-size: 0.85rem;
+    }
+}

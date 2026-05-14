@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODS 2 - Nível Fácil</title>
+    <link rel="stylesheet" href="facil.css">
+</head>
+<body>
+    <main class="game-container">
+        <section id="quiz-container" class="active">
+            <header class="main-header">
+                <p id="progress" class="subtitle">PERGUNTA 1 DE 20</p>
+                <h2 id="question-text" class="mission-text">Carregando pergunta...</h2>
+            </header>
+
+            <div id="options-container" class="action-area">
+                </div>
+        </section>
+
+        <section id="result-screen" style="display: none;">
+            <h1 class="glow-text">FIM</h1>
+            <p id="feedback-rating" class="subtitle"></p>
+            <p id="score-text" class="mission-text"></p>
+            
+            <div class="action-area">
+                <button onclick="showReview()" class="btn-game">VER POR QUE ERREI</button>
+                <button onclick="location.href='../index/opcoes.html'" class="btn-game">REPETIR NÍVEL</button>
+                <button onclick="location.href='../index/index.html'" class="btn-game">INÍCIO</button>
+            </div>
+        </section>
+
+        <section id="review-screen" style="display: none; overflow-y: auto; max-height: 80vh;">
+            <h2 class="subtitle">REVISÃO DAS RESPOSTAS</h2>
+            <div id="review-list" style="text-align: left; font-size: 0.9rem; padding: 10px;"></div>
+            <button onclick="location.reload()" class="btn-game" style="margin-top: 20px;">FECHAR</button>
+        </section>
+    </main>
+
+    <script src="facil.js"></script>
+</body>
+</html>

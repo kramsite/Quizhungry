@@ -1,0 +1,134 @@
+/* 1. RESET E CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+:root {
+    --primary-color: #ffb400;    
+    --secondary-color: #ff6a00;  
+    --bg-dark: #0a0a0a;          
+    --text-white: #ffffff;
+}
+
+body {
+    /* Camada preta transparente por cima da imagem */
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+                url('../img/fundo.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: var(--bg-dark);
+    
+    /* Centralização Total do Body */
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: var(--text-white);
+    overflow: hidden; 
+}
+
+/* 2. CONTAINER PRINCIPAL (Onde tudo acontece) */
+.game-container {
+    width: 100%;
+    max-width: 450px; /* Largura ideal para mobile */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center;     /* Centraliza horizontalmente */
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* 3. CONTEÚDO INTERNO */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* 4. TIPOGRAFIA */
+.glow-text {
+    font-size: clamp(2.5rem, 12vw, 4rem); 
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(255, 180, 0, 0.6);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    margin-bottom: 40px; /* Espaço para o próximo bloco */
+}
+
+/* 5. ÁREA DE BOTÕES (Para a página de opções) */
+.action-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre os botões */
+    width: 100%;
+    max-width: 280px; /* Mantém os botões em um tamanho bom no centro */
+}
+
+/* 6. BOTÕES */
+.btn-game {
+    background: rgba(255, 180, 0, 0.05);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 18px;
+    width: 100%; /* Ocupa a largura do action-area */
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.btn-game:hover {
+    background: var(--primary-color);
+    color: #000;
+    box-shadow: 0 0 30px rgba(255, 180, 0, 0.4);
+}
+
+/* 7. RODAPÉ (Sempre na base) */
+.game-footer {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    pointer-events: none; /* Não atrapalha cliques */
+}
+
+.game-footer p, .game-footer button {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+}
+
+/* 8. ANIMAÇÃO DE ENTRADA */
+.screen.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    animation: fadeIn 0.8s ease-out;
+}

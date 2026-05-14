@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODS 2 - Selecionar Dificuldade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="game-container">
+        
+        <section class="screen active">
+            <header class="main-header">
+                <h1 class="glow-text" style="font-size: 2.5rem;">NÍVEL</h1>
+                <p class="subtitle">SELECIONE A DIFICULDADE</p>
+            </header>
+
+            <div class="action-area" style="width: 100%; display: flex; flex-direction: column; gap: 15px;">
+                <button onclick="location.href='../facil/facil.html'" class="btn-game">FÁCIL</button>
+                <button onclick="location.href='../normal/normal.html'" class="btn-game">NORMAL</button>
+                <button onclick="location.href='../dificil/dificil.html'" class="btn-game">DIFÍCIL</button>
+            </div>
+
+            <footer class="game-footer">
+                <button onclick="location.href='index.html'" style="background:none; border:none; color:rgba(255,180,0,0.5); cursor:pointer; letter-spacing:2px;">
+                    VOLTAR AO INÍCIO
+                </button>
+            </footer>
+        </section>
+
+    </main>
+</body>
+</html>
